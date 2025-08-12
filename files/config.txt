@@ -1,0 +1,52 @@
+# Raspberry Pi Configuration
+
+# Enable I2S audio
+dtparam=i2s=on
+dtoverlay=hifiberry-dac
+
+# Bluetooth configuration
+dtparam=krnbt=on
+enable_uart=1
+dtoverlay=disable-bt
+
+# Audio settings
+dtparam=audio=on
+audio_pwm_mode=2
+
+# Memory split for GPU (minimal for headless)
+gpu_mem=16
+
+# Enable SSH
+enable_ssh=1
+
+# HDMI settings (can be disabled for headless operation)
+hdmi_force_hotplug=1
+hdmi_group=1
+hdmi_mode=1
+
+# I2C and SPI (if needed for audio hardware)
+dtparam=i2c_arm=on
+dtparam=spi=on
+
+# Performance settings
+over_voltage=2
+arm_freq=1000
+core_freq=500
+sdram_freq=500
+force_turbo=0
+
+# Additional overlays for common I2S DACs
+# Uncomment the one that matches your hardware:
+# dtoverlay=hifiberry-dacplus
+# dtoverlay=hifiberry-dac
+# dtoverlay=iqaudio-dac
+# dtoverlay=iqaudio-dacplus
+# dtoverlay=justboom-dac
+# dtoverlay=pisound
+# dtoverlay=rpi-dac
+
+# GPIO configuration for I2S
+# BCM 18 = PCM_CLK (Pin 12)
+# BCM 19 = PCM_FS  (Pin 35)  
+# BCM 21 = PCM_DIN (Pin 40)
+# BCM 20 = PCM_DOUT (Pin 38)
